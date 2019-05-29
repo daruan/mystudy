@@ -1,0 +1,22 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: ad-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://server1:8000/eureka/
+
+#配置微服务的请求转发网关
+zuul:
+  prefix: /daruan
+  routes:
+    sponsor:
+      path: /ad-sponsor/**
+      serviceId: eureka-client-ad-sponsor
+      strip-prefix: false
+    search:
+      path: /ad-search/**
+      serviceId: eureka-client-ad-search
+      strip-prefix: false
