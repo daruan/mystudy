@@ -1,0 +1,3 @@
+com\daruan\App.class
+com\daruan\mapper\base\BaseMapper.class
+com\daruan\mapper\UserMapper.class
