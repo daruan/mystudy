@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="mysqlTables" targetRuntime="MyBatis3">
+
+        <!--数据库配置-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/edu"
+                        userId="root"
+                        password="daruan">
+        </jdbcConnection>
+
+        <!-- java类型解析 -->
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 模型生成包名-->
+        <javaModelGenerator targetPackage="com.daruan.model" targetProject=".\src">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- mybatis的映射.xml-->
+        <sqlMapGenerator targetPackage="com.daruan.mapper"  targetProject=".\src">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- mybatis 的mapper接口生成的包路径-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.daruan.mapper"  targetProject=".\src">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!-- 配置生成表的模型-->
+        <table tableName="t_course" domainObjectName="Course"/>
+        <table tableName="t_department" domainObjectName="Department"></table>
+        <table tableName="t_employee" domainObjectName="Employee"></table>
+        <table tableName="t_salary_detail" domainObjectName="SalaryDetail"></table>
+        <table tableName="t_student" domainObjectName="Student"></table>
+        <table tableName="t_user" domainObjectName="User"></table>
+
+    </context>
+</generatorConfiguration>
